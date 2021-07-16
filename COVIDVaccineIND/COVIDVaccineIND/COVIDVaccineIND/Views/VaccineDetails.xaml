@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COVIDVaccineIND.Views.VaccineDetails"
+             Title="COVID Vaccine Details">
+    <ContentPage.Content>        
+        <StackLayout Padding="5">
+            <Grid RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="2" 
+                        Text="{Binding name}"
+                        TextColor="#a71cfc" 
+                        FontSize="20"/>
+                <Label Grid.Row="1" 
+                        Grid.Column="0" 
+                        Text="{Binding date, StringFormat='Date: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="1" 
+                        Grid.Column="1" 
+                        Text="{Binding pincode, StringFormat='Pincode: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="2" 
+                        Grid.Column="0" 
+                        Text="{Binding vaccine}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="2" 
+                        Grid.Column="1" 
+                        Text="{Binding fee_type}"
+                        FontSize="22"
+                        TextColor="{Binding fontColor}"
+                        FontAttributes="Bold"/>
+                <Label Grid.Row="3" 
+                        Grid.Column="0" 
+                        Text="{Binding min_age_limit, StringFormat='Age: {0}+'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="3" 
+                        Grid.Column="1" 
+                        Text="{Binding fee, StringFormat='Price: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="4" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="2"
+                        Text="{Binding available_capacity, StringFormat='Total: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="5" 
+                        Grid.Column="0" 
+                        Text="{Binding available_capacity_dose1, StringFormat='Dose 1: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="5" 
+                        Grid.Column="1" 
+                        Text="{Binding available_capacity_dose2, StringFormat='Dose 2: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="6" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="2"
+                        Text="{Binding address, StringFormat='Address: {0}'}"
+                        FontSize="18"
+                        TextColor="#1c0029"/>
+                <Label Grid.Row="7" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="2"
+                        Text="Slots"
+                        HorizontalOptions="Center"
+                        FontSize="22"
+                        TextColor="#00c220"
+                        FontAttributes="Bold"/>
+                <ListView Grid.Row="8" 
+                          Grid.Column="0" 
+                          Grid.ColumnSpan="2"
+                          ItemsSource="{Binding slots}"
+                          SeparatorVisibility="None"
+                          HasUnevenRows="True"
+                          IsPullToRefreshEnabled="False"
+                          VerticalScrollBarVisibility="Never"
+                          SelectionMode="None"  
+                          IsVisible="{Binding IsLoaded}"
+                          CachingStrategy="RecycleElementAndDataTemplate">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding .}"
+                                       FontSize="22"
+                                       TextColor="#1c0029"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>     
+    </ContentPage.Content>
+</ContentPage>
