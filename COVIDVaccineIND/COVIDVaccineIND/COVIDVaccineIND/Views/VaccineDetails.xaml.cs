@@ -20,5 +20,10 @@ namespace COVIDVaccineIND.Views
             InitializeComponent();
             BindingContext = this.session = session;
         }
+
+        private async void GoToBooking_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VaccineRegistration());
+        }
     }
 }

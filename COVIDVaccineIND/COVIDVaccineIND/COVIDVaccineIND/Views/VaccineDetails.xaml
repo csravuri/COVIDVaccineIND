@@ -15,6 +15,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -109,7 +110,16 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>
+                <Button Grid.Row="9" 
+                          Grid.Column="0" 
+                          Grid.ColumnSpan="2"
+                          Text="Go To Booking" 
+                    Clicked="GoToBooking_Clicked"
+                    TextColor="#FFF"
+                        HorizontalOptions="Center"
+                    BackgroundColor="#a71cfc"
+                    CornerRadius="6"/>
+            </Grid>            
         </StackLayout>     
     </ContentPage.Content>
 </ContentPage>
